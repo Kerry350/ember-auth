@@ -1,3 +1,21 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">Ember Auth</h2>
+
+<ul>
+  <li>
+    {{#if authentication.isLoggedIn}}
+      <button {{action 'logout'}}> Logout </button>
+    {{else}}
+      {{#link-to 'login'}} Login {{/link-to}}
+    {{/if}}
+  </li>
+
+  <li>
+    {{#link-to 'pets'}} Pets {{/link-to}}
+  </li>
+
+  <li>
+    {{#link-to 'settings'}} Settings {{/link-to}}
+  </li>
+</ul>
 
 {{outlet}}

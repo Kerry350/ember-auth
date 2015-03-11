@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('pets');
+  this.route('settings');
+  this.route('login');
+  this.route('logout');
 });
 
 export default Router;
