@@ -5,15 +5,19 @@ export default Ember.Route.extend({
     this._super(transition);
 
     if (!this.authentication.get('isLoggedIn')) {
-      return this.authentication.attemptTokenRefresh()
-      .then(function() {
-        transition.retry();
-      }.bind(this))
-      .catch(function() {
-        transition.abort();
-        this.redirectToLoginRoute(transition);
-      }.bind(this));
+      return this.handleUnauthenticatedState(transition);
     }
+  },
+
+  handleUnauthenticatedState: function(transition) {
+    return this.authentication.attemptTokenRefresh()
+    .then(function() {
+      transition.retry();
+    }.bind(this))
+    .catch(function() {
+      transition.abort();
+      this.redirectToLoginRoute(transition);
+    }.bind(this));
   },
 
   redirectToLoginRoute: function(currentTransition) {
@@ -24,13 +28,7 @@ export default Ember.Route.extend({
   actions: {
     error: function(reason, transition) {
       if (reason.status === 401) {
-        this.authentication.attemptTokenRefresh()
-        .then(function() {
-          transition.retry();
-        }.bind(this))
-        .catch(function() {
-          this.redirectToLoginRoute(transition);
-        }.bind(this));
+        return this.handleUnauthenticatedState(transition);
       }
     }
   }

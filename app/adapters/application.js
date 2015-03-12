@@ -5,7 +5,7 @@ export default DS.RESTAdapter.extend({
 
   headers: function() {
     return {
-      "Authorization" : "Bearer " + this.get('authentication.token')
+      "Authorization" : "Token " + this.get('authentication.token')
     }
   }.property('authentication.token')
 });

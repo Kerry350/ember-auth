@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
                   }
                 }.bind(this))
                 .catch(function() {
-                  // Show an error
+                  // Show an error of some sort
                 });
         }
     }

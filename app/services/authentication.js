@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
     token: window.localStorage.getItem('accessToken'),
     refreshToken: null,
-    isLoggedIn: Ember.computed.alias('token'),
+    isLoggedIn: Ember.computed.notEmpty('token'),
     previouslyAbortedTransition: null,
 
     authenticate: function(credentials) {
