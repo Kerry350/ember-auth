@@ -7,7 +7,7 @@ module.exports = function(app) {
       name: 'Kerry',
       access_token: 'TOKEN',
       refresh_token: 'REFRESH_TOKEN',
-      token_type: 'Bearer',
+      token_type: 'bearer',
       expires_in: 120
     });
   });

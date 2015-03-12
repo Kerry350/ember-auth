@@ -8,10 +8,10 @@ export default Ember.Controller.extend({
         password: this.get('password')
       })
       .then(function(res) {
-
+        // Do something
       })
       .catch(function(err) {
-
+        // Show an error of some sort
       });
     }
   }
