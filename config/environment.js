@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'auth-app',
+    podModulePrefix: 'auth-app/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,6 +17,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'facebook-oauth2': {
+          apiKey:      'KEY_HERE',
+          redirectUri: "http://localhost:4200/"
+        }
+      }
     }
   };
 

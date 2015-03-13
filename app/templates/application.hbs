@@ -1,3 +1,10 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">Torii Auth</h2>
+
+{{#if session.isAuthenticated}}
+  Hello, {{session.user.name}}
+  <button {{action "logout"}}> Logout </button>
+{{else}}
+  {{#link-to "login"}}Login{{/link-to}}
+{{/if}}
 
 {{outlet}}
