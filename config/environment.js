@@ -4,6 +4,9 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'auth-app',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    podModulePrefix: 'auth-app/pods',
+    firebase: '<app-name>.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
