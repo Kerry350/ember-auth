@@ -1,10 +1,39 @@
-<h2 id="title">Torii Auth</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <h1>Ember Auth</h1>
+        <p>This application demonstrates multiple ways of implementing authentication in an Ember.js application</p>
+      </div>
 
-{{#if session.isAuthenticated}}
-  Hello, {{session.user.name}}
-  <button {{action "logout"}}> Logout </button>
-{{else}}
-  {{#link-to "login"}}Login{{/link-to}}
-{{/if}}
+      <div class="page-header">
+        <h1>Authentication type: <small>Torii</small></h1>
+      </div>
 
-{{outlet}}
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                {{#if session.isAuthenticated}}
+                  <div class="navbar-btn">
+                    <button class="btn btn-default" {{action "logout"}}>Logout</button>
+                  </div>
+                {{else}}
+                  {{#link-to "login"}}Login{{/link-to}}
+                {{/if}}
+              </li>
+              <li>
+                {{#link-to "settings"}}Settings{{/link-to}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  {{outlet}}
+</div>
