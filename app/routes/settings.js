@@ -2,6 +2,6 @@ import AuthenticatedRoute from './authenticated';
 
 export default AuthenticatedRoute.extend({
   model: function() {
-    return this.store.find('pet');
+    return this.store.find('setting');
   }
 });

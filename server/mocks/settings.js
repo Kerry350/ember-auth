@@ -1,12 +1,12 @@
 module.exports = function(app) {
   var express = require('express');
-  var petsRouter = express.Router();
+  var settingsRouter = express.Router();
 
-  petsRouter.get('/', function(req, res) {
+  settingsRouter.get('/', function(req, res) {
     if (req.headers.authorization) {
       var token = req.headers.authorization.split('Token ')[1];
       if (token === 'NEW_TOKEN') {
-        res.status(200).send({pets: []});
+        res.status(200).send({settings: []});
       } else {
         res.status(401).send();
       }
@@ -15,5 +15,5 @@ module.exports = function(app) {
     }
   });
 
-  app.use('/api/pets', petsRouter);
+  app.use('/api/settings', settingsRouter);
 };
