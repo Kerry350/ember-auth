@@ -1,12 +1,42 @@
-<h2 id="title">End-to-end Authentication</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <h1>Ember Auth</h1>
+        <p>This application demonstrates multiple ways of implementing authentication in an Ember.js application</p>
+      </div>
 
-<ul>
-  {{#if session.isAuthenticated}}
-    <li><button {{action "logout"}}>Logout</button></li>
-  {{else}}
-    <li>{{#link-to "login"}}Login{{/link-to}}</li>
-    <li><button {{action "loginWithThirdParty" "facebook-oauth2"}}>Facebook</button></li>
-  {{/if}}
-</ul>
+      <div class="page-header">
+        <h1>Authentication type: <small>end-to-end</small></h1>
+      </div>
 
-{{outlet}}
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                {{#if session.isAuthenticated}}
+                  <div class="navbar-btn">
+                    <button class="btn btn-default" {{action "logout"}}>Logout</button>
+                  </div>
+                {{else}}
+                  {{#link-to "login"}}Login{{/link-to}}
+                  <div class="navbar-btn">
+                    <button class="btn btn-primary" {{action "loginWithThirdParty" "facebook-oauth2"}}>Login with Facebook</button>
+                  </div>
+                {{/if}}
+              </li>
+              <li>
+                {{#link-to "settings"}}Settings{{/link-to}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  {{outlet}}
+</div>
