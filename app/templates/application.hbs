@@ -1,3 +1,12 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">End-to-end Authentication</h2>
+
+<ul>
+  {{#if session.isAuthenticated}}
+    <li><button {{action "logout"}}>Logout</button></li>
+  {{else}}
+    <li>{{#link-to "login"}}Login{{/link-to}}</li>
+    <li><button {{action "loginWithThirdParty" "facebook-oauth2"}}>Facebook</button></li>
+  {{/if}}
+</ul>
 
 {{outlet}}

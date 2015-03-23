@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'auth-app',
+    podModulePrefix: 'auth-app/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,6 +17,25 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    "simple-auth": {
+      store: 'simple-auth-session-store:local-storage',
+      authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      crossOriginWhitelist: ['http://localhost:3200']
+    },
+
+    "simple-auth-oauth2": {
+      serverTokenEndpoint: 'http://localhost:3200/api/v1/token'
+    },
+
+    torii: {
+      providers: {
+        'facebook-oauth2': {
+          apiKey:      '831598460232381',
+          redirectUri: 'http://localhost:4200/'
+        }
+      }
     }
   };
 
