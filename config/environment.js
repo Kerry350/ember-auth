@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'auth-app',
+    podModulePrefix: 'auth-app/pods',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
     podModulePrefix: 'auth-app/pods',
