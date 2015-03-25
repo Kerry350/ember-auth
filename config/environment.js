@@ -32,7 +32,7 @@ module.exports = function(environment) {
     torii: {
       providers: {
         'facebook-oauth2': {
-          apiKey:      '831598460232381',
+          apiKey:      'KEY',
           redirectUri: 'http://localhost:4200/'
         }
       }
