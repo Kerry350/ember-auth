@@ -14,11 +14,29 @@ Each method of authenticating is contained within it's own branch:
 
 A detailed writeup will be coming to accompany all of this. It goes in to detail on some of the issues found when implementing authentication in client side apps, as well as breaking down the implementations on the various branches. 
 
-The `end-to-end` branch when paired with the server side repo should provide a **very** realistic example of how authentication could be implemented. A lot of tutorials only go so far when demonstrating auth, but apart from a few minor points, like the seeded users password being stored in plaintext, this is a 'real-world' example. 
+The `end-to-end` branch when paired with the server side repo should provide a **very** realistic example of how authentication could be implemented. A lot of tutorials only go so far when demonstrating auth, but apart from a few minor points, like the seeded users password being stored in plaintext (things like this are pointed out in comments), this is a 'real-world' example. 
 
 ## Considerations
 
-One thing that has been missed out for the sake of simplicity is HTTPS. If you were to implement these methods in a production application **you must use HTTPS**.  
+One thing that has been missed out for the sake of simplicity is HTTPS. If you were to implement these methods in a production application **you must use HTTPS**. 
+
+The server mocks also intend to be functional, not secure or 'right'. The credentials aren't validated, nor are the tokens, the mocks are just there to provide a suitable API response. The `end-to-end` branch is the exception, this is paired with a proper server repo where lookups are carried out.
+
+## Configuration 
+
+Some branches require certain configuration options. 
+
+- Torii
+  - Set your `apiKey` in `config/environment.js`
+  - Set your `client_id` and `client_secret` in `server/mocks/auth.js`
+
+- Firebase
+  - Set the `firebase` property in `config/environment.js`
+
+- End-to-end
+  - Set your `apiKey` in `config/environment.js`
+  - You'll also need to provide your `client_id` and `client_secret` but this is documented in the server repo README 
+  - Start the ember.js app with the `proxy` option, `ember server --proxy http://127.0.0.1:3200`  
 
 ## Prerequisites
 
