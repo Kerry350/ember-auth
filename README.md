@@ -36,6 +36,7 @@ Some branches require certain configuration options.
 
 - End-to-end
   - Set your `apiKey` in `config/environment.js`
+  - Set your `clientId` in `config/environment.js`, this is the `clientId` that represents the Ember.js app as a consumer. A Client is automatically seeded by the server the first time it is run. Use the `_id` of the Client document as the value for this property.  
   - You'll also need to provide your `client_id` and `client_secret` but this is documented in the server repo README 
   - Start the ember.js app with the `proxy` option, `ember server --proxy http://127.0.0.1:3200` 
   - User credentials are:
