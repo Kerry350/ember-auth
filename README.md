@@ -32,6 +32,7 @@ Some branches require certain configuration options.
 
 - Firebase
   - Set the `firebase` property in `config/environment.js`
+  - Use the email and password credentials that you've setup in your Firebase Dashboard (under 'login & auth')
 
 - End-to-end
   - Set your `apiKey` in `config/environment.js`
