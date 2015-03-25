@@ -36,7 +36,10 @@ Some branches require certain configuration options.
 - End-to-end
   - Set your `apiKey` in `config/environment.js`
   - You'll also need to provide your `client_id` and `client_secret` but this is documented in the server repo README 
-  - Start the ember.js app with the `proxy` option, `ember server --proxy http://127.0.0.1:3200`  
+  - Start the ember.js app with the `proxy` option, `ember server --proxy http://127.0.0.1:3200` 
+  - User credentials are:
+    - Email: `test@test.com`
+    - Password: `password` 
 
 ## Prerequisites
 
