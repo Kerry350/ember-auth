@@ -1,0 +1,27 @@
+{{#if token}}
+  <p>Please enter your new password</p>
+  <form {{action "resetPassword" on="submit"}}>
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input type="password" class="form-control" value=attrs.password}}
+    </div>
+    <div class="form-group">
+      <label for="password">Password Confirmation</label>
+      {{input type="password" class="form-control" value=attrs.passwordConfirmation}}
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+{{else}}
+  <p>Please enter the email you would like to change the password for</p>
+  <form {{action "requestPasswordReset" on="submit"}}>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      {{input type="email" class="form-control" placeholder="example@domain.com" value=attrs.email}}
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+{{/if}}
+
+{{#if attrs.message}}
+  {{attrs.message}}
+{{/if}}
