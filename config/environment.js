@@ -19,7 +19,7 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    clientId: "ID", // Can be obtained from the seeded client on the server
+    clientId: "550c072de4ac8a64132533af", // Can be obtained from the seeded client on the server
 
     "simple-auth": {
       store: 'simple-auth-session-store:local-storage',
