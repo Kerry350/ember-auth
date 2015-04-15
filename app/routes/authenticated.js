@@ -4,13 +4,13 @@ export default Ember.Route.extend({
   beforeModel: function(transition) {
     this._super(transition);
 
-    if (!this.authentication.get('isLoggedIn')) {
+    if (!this.session.get('isAuthenticated')) {
       return this.handleUnauthenticatedState(transition);
     }
   },
 
   handleUnauthenticatedState: function(transition) {
-    return this.authentication.attemptTokenRefresh()
+    return this.session.attemptTokenRefresh()
     .then(function() {
       transition.retry();
     }.bind(this))
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
   },
 
   redirectToLoginRoute: function(currentTransition) {
-    this.authentication.set('previouslyAbortedTransition', currentTransition);
+    this.session.set('previouslyAbortedTransition', currentTransition);
     this.transitionTo('login');
   },
 

@@ -15,7 +15,7 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li>
-                {{#if authentication.isLoggedIn}}
+                {{#if session.isAuthenticated}}
                   <div class="navbar-btn">
                     <button class="btn btn-default" {{action "logout"}}>Logout</button>
                   </div>
@@ -24,7 +24,7 @@
                 {{/if}}
               </li>
               <li>
-                {{#link-to "settings"}}Settings{{/link-to}}
+                {{#link-to "protected"}}Protected{{/link-to}}
               </li>
             </ul>
           </div>

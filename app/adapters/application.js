@@ -5,8 +5,8 @@ export default DS.RESTAdapter.extend({
 
   headers: function() {
     return {
-      "Authorization" : "Token " + this.get('authentication.token')
-    }
-  }.property('authentication.token')
+      "Authorization" : "Token " + this.get('session.token')
+    };
+  }.property('session.token')
 });
 

@@ -5,19 +5,19 @@ export default Ember.Controller.extend({
         login: function() {
             var props = this.getProperties('email', 'password');
 
-            this.authentication
-                .authenticate(props)
-                .then(function() {
-                  if (this.authentication.get('previouslyAbortedTransition')) {
-                    this.authentication.get('previouslyAbortedTransition').retry();
-                    this.authentication.set('previouslyAbortedTransition', null);
-                  } else {
-                    this.transitionToRoute('settings');
-                  }
-                }.bind(this))
-                .catch(function() {
-                  // Show an error of some sort
-                });
+            this.session
+            .authenticate(props)
+            .then(function() {
+              if (this.session.get('previouslyAbortedTransition')) {
+                this.session.get('previouslyAbortedTransition').retry();
+                this.session.set('previouslyAbortedTransition', null);
+              } else {
+                this.transitionToRoute('protected');
+              }
+            }.bind(this))
+            .catch(function() {
+              // Show an error of some sort
+            });
         }
     }
 });

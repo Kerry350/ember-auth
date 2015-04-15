@@ -1,10 +1,10 @@
 import request from 'ic-ajax';
 import Ember from 'ember';
 
-export default Ember.Object.extend({
+export default Ember.Service.extend({
     token: window.localStorage.getItem('accessToken'),
     refreshToken: null,
-    isLoggedIn: Ember.computed.notEmpty('token'),
+    isAuthenticated: Ember.computed.notEmpty('token'),
     previouslyAbortedTransition: null,
 
     authenticate: function(credentials) {
@@ -28,7 +28,7 @@ export default Ember.Object.extend({
         return true;
     },
 
-    destroySession: function() {
+    invalidate: function() {
         this.setProperties({
             token: null,
             refreshToken: null
@@ -55,7 +55,7 @@ export default Ember.Object.extend({
         } else {
           this.useRefreshToken()
           .then(resolve)
-          .catch(reject)
+          .catch(reject);
         }
       }.bind(this));
     },
